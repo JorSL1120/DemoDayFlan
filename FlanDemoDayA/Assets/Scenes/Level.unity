@@ -9206,6 +9206,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemies:
   - {fileID: 2008224327}
+  - {fileID: 1503666547}
+  - {fileID: 231687622}
+  - {fileID: 1774708973}
+  - {fileID: 205104171}
+  - {fileID: 167443517}
+  - {fileID: 2011153649}
+  - {fileID: 821192728}
+  - {fileID: 1316631482}
+  - {fileID: 310139997}
+  - {fileID: 575284075}
+  - {fileID: 235484833}
+  - {fileID: 366966743}
+  - {fileID: 365255926}
+  - {fileID: 41979576}
+  - {fileID: 583959560}
+  - {fileID: 2104249133}
+  - {fileID: 174720894}
+  - {fileID: 1302670784}
   detectionDistance: 10
   fieldOfView: 90
 --- !u!1 &265594152
