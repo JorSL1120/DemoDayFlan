@@ -12,6 +12,8 @@ public class PanelController : MonoBehaviour
 
     void Start()
     {
+        panel.SetActive(false);
+
         if (panel != null)
         {
             panelImage = panel.GetComponent<Image>();
@@ -38,6 +40,7 @@ public class PanelController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            panel.SetActive(true);
             fadeIn = true;
         }
     }

@@ -18,10 +18,15 @@ public class PlayerDetector : MonoBehaviour
         {
             if (enemy == null) continue;
 
-            Vector3 directionToEnemy = (enemy.transform.position - transform.position).normalized;
+            //Vector3 directionToEnemy = (enemy.transform.position - transform.position).normalized;
             float distance = Vector3.Distance(transform.position, enemy.transform.position);
 
-            float dot = Vector3.Dot(transform.forward, directionToEnemy);
+            //float dot = Vector3.Dot(transform.forward, directionToEnemy);
+
+            Vector3 flatDirectionToEnemy = (enemy.transform.position - transform.position);
+            flatDirectionToEnemy.y = 0;
+            flatDirectionToEnemy.Normalize();
+            float dot = Vector3.Dot(transform.forward, flatDirectionToEnemy);
             float angleLimit = Mathf.Cos(Mathf.Deg2Rad * fieldOfView / 2f);
 
             if (dot >= angleLimit && distance <= detectionDistance)

@@ -25,8 +25,12 @@ public class WaypointFollow : MonoBehaviour
 
     public GameObject footstep;
 
+    public GameObject panelPerdiste;
+
     void Start()
     {
+        panelPerdiste.SetActive(false);
+
         footstep.SetActive(false);
 
         path = new Queue<GameObject>();
@@ -169,6 +173,14 @@ public class WaypointFollow : MonoBehaviour
     void footsteps()
     {
         footstep.SetActive(true);
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Enemigo"))
+        {
+            panelPerdiste.SetActive(true);
+        }
     }
 
 }

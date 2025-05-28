@@ -7,6 +7,7 @@ TagManager:
   - WayPoints
   - Barrera
   - Meta
+  - Enemigo
   layers:
   - Default
   - TransparentFX
