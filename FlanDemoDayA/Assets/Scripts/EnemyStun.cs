@@ -1,48 +1,58 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.AI;
 
 public class EnemyStun : MonoBehaviour
 {
+    [Header("Configuración de Stun")]
+    public float customStunDuration = 3f; // Puedes ajustar este valor desde el Inspector
+
+    [Header("Knockback")]
+    public float knockbackForce = 5f; // Opcional, puedes configurar knockback por enemigo
+
     private bool isStunned = false;
     private Rigidbody rb;
-    private UnityEngine.AI.NavMeshAgent agent; // Si usas NavMesh para mover enemigos
+    private NavMeshAgent agent;
+
+    // Permite que otros scripts (como EnemyAI) vean si está stuneado
+    public bool IsStunned => isStunned;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        agent = GetComponent<UnityEngine.AI.NavMeshAgent>();
+        agent = GetComponent<NavMeshAgent>();
     }
 
-    public void Stun(float duration, Vector3 explosionOrigin, float knockbackForce)
+    // Este método es llamado por la bomba al explotar
+    public void Stun(Vector3 explosionOrigin, float knockback)
     {
-        if (!isStunned)
-        {
-            StartCoroutine(StunCoroutine(duration));
+        if (isStunned) return;
 
-            // Aplica fuerza de empuje desde la bomba
-            if (rb != null)
-            {
-                Vector3 direction = (transform.position - explosionOrigin).normalized;
-                rb.AddForce(direction * knockbackForce, ForceMode.Impulse);
-            }
+        // Aplicar fuerza de empuje (knockback)
+        if (rb != null)
+        {
+            Vector3 direction = (transform.position - explosionOrigin).normalized;
+            rb.AddForce(direction * knockback, ForceMode.Impulse);
         }
+
+        StartCoroutine(StunCoroutine(customStunDuration));
     }
 
-    IEnumerator StunCoroutine(float duration)
+    private IEnumerator StunCoroutine(float duration)
     {
         isStunned = true;
 
+        // Detener movimiento de IA
         if (agent != null)
-            agent.enabled = false; // Desactiva movimiento por IA
+            agent.enabled = false;
 
-        Debug.Log($"{gameObject.name} aturdido y empujado");
-
+        // Esperar el tiempo de stun
         yield return new WaitForSeconds(duration);
 
+        // Restaurar movimiento
         if (agent != null)
             agent.enabled = true;
 
         isStunned = false;
-        Debug.Log($"{gameObject.name} ya no está aturdido");
     }
 }

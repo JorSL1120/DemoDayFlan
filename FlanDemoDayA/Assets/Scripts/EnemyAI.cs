@@ -12,10 +12,21 @@ public class EnemyAI : MonoBehaviour
     public float detectionRange = 10f;
 
     private bool canMove = true;
+    private EnemyStun stun;  // Sistema del Stun
+
+    void Awake()
+    {
+        //Obtener el componente de stun si existe
+        stun = GetComponent<EnemyStun>();
+    }
 
     void Update()
     {
         if (player == null || !canMove)
+            return;
+
+        //Si el fantasma está stuneado, no se mueve
+        if (stun != null && stun.IsStunned)
             return;
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);

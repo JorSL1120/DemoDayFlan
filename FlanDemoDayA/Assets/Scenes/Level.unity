@@ -70084,6 +70084,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 802fd14dfbc8ada43a2ee0779cd41e54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  customStunDuration: 3
+  knockbackForce: 5
 --- !u!54 &2008224329
 Rigidbody:
   m_ObjectHideFlags: 0
