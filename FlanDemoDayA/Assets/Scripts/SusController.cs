@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class SusController : MonoBehaviour
 {
-    public float speed, rotSpeed;
+    //public float speed, rotSpeed;
     public Transform enemy;
 
     void Update()
     {
-        Movement();
+        //Movement();
         Vector3 normEnemyPos = (enemy.position - transform.position).normalized;
 
         //float distToEnemy = Vector3.Magnitude(enemy.position - transform.position);
@@ -23,6 +23,7 @@ public class SusController : MonoBehaviour
             SusFollowing.canMove = true;*/
     }
 
+    /*
     void Movement()
     {
         float dt = Time.deltaTime;
@@ -52,4 +53,5 @@ public class SusController : MonoBehaviour
         else
             return 0f;
     }
+    */
 }
