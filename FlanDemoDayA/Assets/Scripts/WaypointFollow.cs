@@ -22,8 +22,13 @@ public class WaypointFollow : MonoBehaviour
 
     public float maxTime;
     float timing;
+
+    public GameObject footstep;
+
     void Start()
     {
+        footstep.SetActive(false);
+
         path = new Queue<GameObject>();
 
         foreach(GameObject wayPoint in wayPoints)
@@ -51,6 +56,7 @@ public class WaypointFollow : MonoBehaviour
                 inCooldown = false;
             }
         }
+
         
     }
 
@@ -75,6 +81,12 @@ public class WaypointFollow : MonoBehaviour
         if (Input.GetKey(KeyCode.W))
         {
             transform.Translate(Vector3.forward * walkingSpeed, Space.Self);
+            footsteps();
+        }
+
+        if (Input.GetKeyUp(KeyCode.W))
+        {
+            footstep.SetActive(false);
         }
 
         float dis = Vector3.Distance(transform.position, _go.transform.position);
@@ -97,6 +109,7 @@ public class WaypointFollow : MonoBehaviour
             }
 
         }
+
     }
 
     void LookBack()
@@ -128,6 +141,7 @@ public class WaypointFollow : MonoBehaviour
         {
             originalRotation = transform.rotation;
             lookingBack = true;
+            footstep.SetActive(false);
         }
 
         if (Input.GetKey(KeyCode.S))
@@ -149,6 +163,12 @@ public class WaypointFollow : MonoBehaviour
         {
             transform.GetChild(0).rotation = Quaternion.Slerp(transform.GetChild(0).rotation, originalRotation, Time.deltaTime * smoothness);
         }
+    }
+
+
+    void footsteps()
+    {
+        footstep.SetActive(true);
     }
 
 }
