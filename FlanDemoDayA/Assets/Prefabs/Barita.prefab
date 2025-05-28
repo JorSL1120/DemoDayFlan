@@ -123,9 +123,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosionRadius: 10
-  stunDuration: 3
+  stunDuration: 5
   knockbackForce: 10
-  explosionEffect: {fileID: 0}
+  explosionEffect: {fileID: 7618616370019863519, guid: 7a071d815a8041a4fa0d44744dc021ef, type: 3}
 --- !u!54 &4266022298744584409
 Rigidbody:
   m_ObjectHideFlags: 0

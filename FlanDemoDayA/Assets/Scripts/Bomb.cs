@@ -3,7 +3,7 @@ using UnityEngine;
 public class Bomb : MonoBehaviour
 {
     public float explosionRadius = 5f;
-    public float stunDuration = 2f;
+    public float stunDuration = 5f;
     public float knockbackForce = 8f;
     public GameObject explosionEffect;
 

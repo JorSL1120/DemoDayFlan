@@ -73437,7 +73437,6 @@ GameObject:
   - component: {fileID: 2008224327}
   - component: {fileID: 2008224328}
   - component: {fileID: 2008224329}
-  - component: {fileID: 919132147808087830}
   m_Layer: 0
   m_Name: ghost
   m_TagString: Untagged
@@ -73445,22 +73444,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!111 &919132147808087830
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 919132147808087829}
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Animation: {fileID: 5862543501114407046, guid: 01049c6e216e64241a3334b982ca905c, type: 3}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_UpdateMode: 0
-  m_CullingType: 0
 --- !u!23 &1033484763155647058
 MeshRenderer:
   m_ObjectHideFlags: 0
